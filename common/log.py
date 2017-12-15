@@ -1,3 +1,4 @@
+import sys
 import yaml as yml
 
 def yaml(i, y, quiet=False):
@@ -5,6 +6,8 @@ def yaml(i, y, quiet=False):
         return
     opts = {
         'default_flow_style': False,
+        'allow_unicode': True,
     }
     safe = yml.safe_dump({i:y}, **opts)
-    print(safe)
+    sys.stdout.write(safe+'\n')
+    sys.stdout.flush()
